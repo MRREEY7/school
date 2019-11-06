@@ -1,0 +1,118 @@
+let lamp = 0
+input.buttonA.onEvent(ButtonEvent.Click, function () {
+    lamp = 1
+    if (lamp == 1) {
+        while (lamp == 1) {
+            light.setAll(0xffffff)
+            pause(1000)
+            light.setAll(0x000000)
+            pause(500)
+        }
+    }
+})
+input.buttonB.onEvent(ButtonEvent.Click, function () {
+    lamp = 2
+    if (lamp == 2) {
+        while (lamp == 2) {
+            light.setAll(0x00ff00)
+            pause(1000)
+            light.setAll(0x000000)
+            pause(500)
+        }
+    }
+})
+input.buttonA.onEvent(ButtonEvent.LongClick, function () {
+    lamp = 3
+    if (lamp == 3) {
+        while (lamp == 3) {
+            light.setAll(0xffff00)
+            pause(1000)
+            light.setAll(0x000000)
+            pause(500)
+        }
+    }
+})
+input.buttonB.onEvent(ButtonEvent.LongClick, function () {
+    lamp = 4
+    if (lamp == 4) {
+        while (lamp == 4) {
+            light.setAll(0x0000ff)
+            pause(1000)
+            light.setAll(0x000000)
+            pause(500)
+        }
+    }
+})
+input.onGesture(Gesture.Shake, function () {
+    lamp = 0
+    pause(2000)
+    if (lamp == 0) {
+        lamp = Math.randomRange(5, 10)
+        if (lamp == 5) {
+            light.showAnimation(light.colorWipeAnimation, 2000)
+            pause(2000)
+            pause(500)
+            light.setAll(0x000000)
+            lamp = 0
+        } else {
+            if (lamp == 6) {
+                light.showAnimation(light.runningLightsAnimation, 2000)
+                pause(2000)
+                pause(500)
+                light.setAll(0x000000)
+                lamp = 0
+            } else {
+                if (lamp == 7) {
+                    light.showAnimation(light.cometAnimation, 2000)
+                    pause(2000)
+                    pause(500)
+                    light.setAll(0x000000)
+                    lamp = 0
+                } else {
+                    if (lamp == 8) {
+                        light.showAnimation(light.sparkleAnimation, 2000)
+                        pause(2000)
+                        pause(500)
+                        light.setAll(0x000000)
+                        lamp = 0
+                    } else {
+                        if (lamp == 9) {
+                            light.showAnimation(light.rainbowAnimation, 2000)
+                            pause(500)
+                            pause(2000)
+                            light.setAll(0x000000)
+                            lamp = 0
+                        } else {
+                            if (lamp == 10) {
+                                light.showRing(
+                                `black green black green black black green green green black`
+                                )
+                                music.baDing.play()
+                                pause(1000)
+                                light.showRing(
+                                `black yellow yellow yellow black black yellow black yellow black`
+                                )
+                                music.baDing.play()
+                                pause(1000)
+                                light.showRing(
+                                `pink pink pink black black pink black pink black black`
+                                )
+                                music.baDing.play()
+                                pause(1000)
+                                light.showRing(
+                                `black black purple black purple black black purple purple purple`
+                                )
+                                music.baDing.play()
+                                pause(1000)
+                                music.powerDown.play()
+                                pause(1000)
+                                light.setAll(0x000000)
+                                lamp = 0
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+})
